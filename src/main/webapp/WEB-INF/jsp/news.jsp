@@ -195,7 +195,9 @@
         <div class = "footer-right">
             <h2>Subscribe Today!</h2>
             <div>
-                <input type = "text" placeholder = "Email Address">
+                <form>
+                <input type = "email" placeholder = "Email Address" value="${user.email}">
+                </form>
                 <i class = "fas fa-envelope"></i>
             </div>
         </div>

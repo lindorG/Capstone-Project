@@ -40,7 +40,7 @@
 
                 <sec:authorize access="isAuthenticated()">
                     <li><a href="/login/logout">&nbsp;| &nbsp; Logout &nbsp; |&nbsp;</a></li>
-                    <li style="color: white; font-size: 12px;">Welcome <sec:authentication property="principal.username" />!</li>
+                    <li style="color: white; font-size: 12px;">Welcome <sec:authentication property="principal.username"/>!</li>
                 </sec:authorize>
                 </form>
                 <li><a href="../index">HOME</a></li>

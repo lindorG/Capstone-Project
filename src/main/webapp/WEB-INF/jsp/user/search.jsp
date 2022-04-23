@@ -12,9 +12,15 @@
 
 <br>
 <form action="/user/search" method="GET">
-    <span><i aria-hidden="true" class="fa fa-user"></i></span>
-    <input type="text" name="displayName" placeholder="Enter Display Name" value="${displayName}">
-    <button type="submit">Submit</button>
+    <div class="wrap">
+        <div class="searchBar">
+            <span><i aria-hidden="true" class="fa fa-user"></i></span>
+            <input type="text" name="displayName" placeholder="Enter Display Name" value="${displayName}">
+            <button type="submit" class="searchButton">
+                <i class="fa fa-search" style="height: 1px"></i>
+            </button>
+        </div>
+    </div>
 </form>
 
 <br>
@@ -26,18 +32,18 @@
 
 
 <table class="table">
-    <tr scope="row">
+    <tr scope="row" style="background-color: #ffffff">
         <th>Email</th>
         <th>Display Name</th>
         <th>Region</th>
         <th></th>
     </tr>
     <c:forEach items="${usersModelKey}" var="user">
-        <tr scope="row">
+        <tr scope="row" style="color: white">
             <td>${user.email}</td>
             <td>${user.displayName}</td>
             <td>${user.region}</td>
-            <td><a href="/user/edit/${user.id}">Edit</a></td>
+            <td><a href="/user/edit/${user.id}" class="hero-btn">Edit</a></td>
         </tr>
     </c:forEach>
 </table>

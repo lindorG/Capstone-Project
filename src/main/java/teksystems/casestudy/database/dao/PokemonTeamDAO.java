@@ -5,11 +5,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import teksystems.casestudy.database.entity.PokemonTeam;
-import teksystems.casestudy.database.entity.Team;
-import teksystems.casestudy.database.entity.User;
 
 import java.util.List;
-import java.util.Map;
 
 @Repository
 public interface PokemonTeamDAO extends JpaRepository<PokemonTeam, Long> {
@@ -20,4 +17,6 @@ public interface PokemonTeamDAO extends JpaRepository<PokemonTeam, Long> {
         // this JPA Query is hibernate, JQL, or a HQL query
         // @Query("select u from users u where u.email = :email")
     List<Integer> findByTeamId(@Param("team_id") Integer team_id);
+
+    Integer deletePokemonTeamByPokemonId(@Param("pok_id") Integer pok_id);
 }

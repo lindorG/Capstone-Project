@@ -36,16 +36,8 @@ public class TeamController {
     @Autowired
     private UserDAO userDao;
 
-
-    @RequestMapping(value = "/showTeam", method = RequestMethod.GET)
-    public ModelAndView showTeam() throws Exception {
-        ModelAndView response = new ModelAndView();
-
-        return response;
-    }
-
-    @RequestMapping(value="/team/teambuilder", method = RequestMethod.GET)
-    public ModelAndView search(@RequestParam(value = "name", required = false) String name, @RequestParam(value = "add", required = false, defaultValue = "-1") Integer id) {
+    @RequestMapping(value="/team/teambuilder", method = { RequestMethod.POST, RequestMethod.GET })
+    public ModelAndView search(@RequestParam(value = "name", required = false) String name, @RequestParam(value = "add", required = false, defaultValue = "-1") Integer id, @RequestParam(value = "delete", required = false, defaultValue = "-1") Integer pok_id) {
 
         ModelAndView response = new ModelAndView();
         response.setViewName("team/teambuilder");
@@ -75,7 +67,21 @@ public class TeamController {
             pokemonTeam.setPokemon(pokemonDao.findById(id));
 
             response.setViewName("redirect:/team/teambuilder");
-            // This is a duplicate entry error and it should be handled
+            // This is a duplicate entry error. A proper try-catch should be implemented
+            try {
+                pokemonTeamDao.save(pokemonTeam);
+            } catch(Exception e) {
+                System.out.println("You cannot create a duplicate entry");
+            }
+        }
+        if (id != -1 && teamIdList.size() < 6) {
+            PokemonTeam pokemonTeam = new PokemonTeam();
+
+            pokemonTeam.setTeam(team);
+//            pokemonTeam.setPokemon(pokemonDao.findById(pokemonTeamDao.deletePokemonTeamByPokemonId(pok_id, team.getId())));
+
+            response.setViewName("redirect:/team/teambuilder");
+            // This is a duplicate entry error. A proper try-catch should be implemented
             try {
                 pokemonTeamDao.save(pokemonTeam);
             } catch(Exception e) {
@@ -99,6 +105,9 @@ public class TeamController {
 
         System.out.println(pokemonTeamDao.findByTeamId(team.getId()));
 
+        System.out.println(pok_id);
+        System.out.println(team.getId());
+//        System.out.println(pokemonTeamDao.deletePokemonTeamByPokemonId(team.getId()));
 
         List<Pokemon> pokemonList = new ArrayList<>();
 

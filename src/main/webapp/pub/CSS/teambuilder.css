@@ -121,13 +121,9 @@ nav .fa {
     align-items: center;
 }
 .search {
-    align-items: center;
-    align-text: center;
-    padding-bottom: 100px;
-    width:100%;
-    margin:0 auto;
+    position: relative;
+    text-align: center;
 }
-
 .search h1 {
     font-size: 42px;
     color: #333333;
@@ -150,14 +146,20 @@ nav .fa {
     margin-left: auto;
     margin-right: auto;
     max-width: 800px;
-    margin-top: 200px;
+    margin-top: 100px;
+    padding-bottom: 100px;
 }
 .search h1 {
     font-size: 100px;
 }
-.bouncy{
+.bouncy {
     animation:bouncy 5s infinite linear;
     position:relative;
+    border: 1px solid #ffffff;
+    background: #2a2a2a;
+    color: #ffffff;
+    transition: .3s;
+    font-size: 20px;
 }
 @keyframes bouncy {
 40%{top:0em}
@@ -179,7 +181,6 @@ fa-solid fa-dragon {
     border: 1px solid #575757;
     padding: 12px 34px;
     font-size: 13px;
-    background: transparent;
     position: relative;
     cursor: pointer;
 }
@@ -192,4 +193,28 @@ fa-solid fa-dragon {
 }
 .hero-btn:hover a {
     color: #ffffff;
+}
+.team-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 12px 34px;
+    font-size: 13px;
+    border: 1px solid #ffffff;
+    background: #2a2a2a;
+    position: relative;
+    cursor: pointer;
+}
+/*COLOR HOVER EFFECT OVER SIGN UP BUTTON*/
+.team-btn:hover {
+    color: #2a2a2a;
+    transition: .3s;
+    border: 1px solid #575757;
+    background: #ffffff;
+}
+.team-btn:hover a {
+    color: #ffffff;
+}
+.search .searchToAdd .fa-solid {
+    color: #333333;
 }

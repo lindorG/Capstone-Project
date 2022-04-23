@@ -5,7 +5,6 @@
 
 <link rel="stylesheet" href="..\..\..\pub\CSS\teambuilder.css">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-<script src="..\..\..\pub\JavaScript\teambuilder.js"></script>
 <title></title>
 
 <section class="teamBuilder">
@@ -35,6 +34,7 @@
                 <td>${pokemon.name.toUpperCase()}</td>
                 <td>${pokemon.pokHeight*10} cm</td>
                 <td>${Math.round(pokemon.pokWeight*0.1)} kg</td>
+                <td><a href="/team/teambuilder?delete=${pokemon.id}" class="team-btn"><i class="fa-solid fa-trash-can"></i></a></td>
             </tr>
         </c:forEach>
     </table>
@@ -45,7 +45,7 @@
 <section class="search">
     <c:if test="${empty form.id}">
         <div class="text-box">
-            <h1 style="opacity: 0.65">Search Pok&#233;mon</h1>
+            <h1 style="opacity: 0.65; font-size: 50px;">Search Pok&#233;mon</h1>
         </div>
     </c:if>
 
@@ -55,14 +55,13 @@
     </c:if>
 
     <c:if test="${empty name}">
-        <h5 style="color: #333333">We hope you find what you're looking for</h5>
         <br>
     </c:if>
 
     <form action="/team/teambuilder" method="GET" class="searchToAdd">
-        <span><i class="fa-solid fa-dragon" style="color: white"></i></span>
+        <i class="fa-solid fa-dragon"></i>
         <input type="text" name="name" class="textInput" placeholder="Enter Name" value="${name}">
-        <button type="submit" class="button1 bouncy">Search</button>
+        <button type="submit" class="button1 bouncy">&nbsp;Search&nbsp;</button>
     </form>
 
     <table class="table">
@@ -84,5 +83,7 @@
         </c:forEach>
     </table>
     </section>
+
+<script src="..\..\..\pub\JavaScript\teambuilder.js"></script>
 
 <jsp:include page="../include/footer.jsp" />

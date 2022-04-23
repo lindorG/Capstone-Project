@@ -7,7 +7,7 @@
 .header {
     height: 70vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4, 9, 30, 0.43), rgba(190, 190, 190, 0.7)), url(../images/library.jpg);
+    background-image: linear-gradient(rgba(4, 9, 30, 0.43), rgba(190, 190, 190, 0.7)), url(../images/pokedex2.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -125,6 +125,9 @@ nav .fa {
     .nav-links ul {
         padding: 30px;
     }
+}
+.pokedex {
+    padding-bottom: 100px;
 }
 
 .pokedexText {
