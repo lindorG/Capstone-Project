@@ -14,6 +14,8 @@ public interface UserDAO extends JpaRepository<User, Long> {
 
     User findById(@Param("id") Integer id);
 
+
+    // JPA/HQL Query: @Query("select u from users u where u.email = :email")
     @Query(value = "select * from users where email = :email", nativeQuery = true)
 
     User findByEmail(@Param("email") String email);

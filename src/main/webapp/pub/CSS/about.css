@@ -96,22 +96,26 @@ nav .fa {
     margin: auto;
     padding-top: 80px;
     padding-bottom: 200px;
-    margin-right: 100px;
 }
-.about h1 {
-    padding-top: 50px;
+.about-us img {
+    position: relative;
+    margin-left: 80px;
 }
 .about-col {
     float: left;
     width: 50%;
-    padding: 10px;
-    height: 300px;
 }
 .about-col h1 {
     padding-top: 0;
+    margin-left: 130px;
+    display: flex;
+    justify-content: center;
 }
 .about-col p {
     padding: 15px 0 25px;
+    margin-left: 130px;
+    display: flex;
+    justify-content: center;
 }
 
 /*SIGN UP BUTTON*/
@@ -125,6 +129,7 @@ nav .fa {
     background: #222222;
     position: relative;
     cursor: pointer;
+    margin-left: 130px;
 }
 /*COLOR HOVER EFFECT OVER SIGN UP BUTTON*/
 .hero-btn:hover {

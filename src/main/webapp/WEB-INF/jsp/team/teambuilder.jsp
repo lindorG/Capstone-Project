@@ -34,7 +34,7 @@
                 <td>${pokemon.name.toUpperCase()}</td>
                 <td>${pokemon.pokHeight*10} cm</td>
                 <td>${Math.round(pokemon.pokWeight*0.1)} kg</td>
-                <td><a href="/team/teambuilder?delete=${pokemon.id}" class="team-btn"><i class="fa-solid fa-trash-can"></i></a></td>
+                <td><a href="/team/delete?delete=${pokemon.id}" class="team-btn"><i class="fa-solid fa-trash-can"></i></a></td>
             </tr>
         </c:forEach>
     </table>

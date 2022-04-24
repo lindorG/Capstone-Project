@@ -15,10 +15,8 @@ public interface PokemonTeamDAO extends JpaRepository<PokemonTeam, Long> {
     PokemonTeam findById(@Param("id") Integer id);
 
     @Query(value = "select pok_id from pokemon_teams where team_id = :team_id", nativeQuery = true)
-        // this JPA Query is hibernate, JQL, or a HQL query
-        // @Query("select u from users u where u.email = :email")
     List<Integer> findByTeamId(@Param("team_id") Integer team_id);
 
-    @Query(value = "delete from pokemon_teams where pok_id = :pok_id and team_id = :team_id", nativeQuery = true)
-    Pokemon deletePokemonByPokemonIdAndTeamId(@Param("pok_id") Integer pok_id, @Param("team_id") Integer team_id);
+//    @Query(value = "delete from pokemon_teams where pok_id = :pok_id and team_id = :team_id")
+    void deletePokemonTeamByIdAndTeamId(@Param("pok_id") Integer pok_id, @Param("team_id") Integer team_id);
 }
