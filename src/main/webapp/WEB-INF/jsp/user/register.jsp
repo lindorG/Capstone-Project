@@ -7,6 +7,7 @@
 <title>Register</title>
 
 <!-- rewrite this as a case statement using c:choose -->
+<section class="titleAbove">
 <c:if test="${empty form.id}">
     <div class="text-box">
     <h3>Register</h3>
@@ -18,6 +19,7 @@
         <h3>Edit User</h3>
     </div>
 </c:if>
+</section>
 
 <form action="/user/registerSubmit"   method="get">
     <input type="hidden" name="id" value="${form.id}">
@@ -26,25 +28,25 @@
     <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
     <input type="text" id="displayNameId" placeholder="Display Name" name="displayName" value="${form.displayName}"/>
         <c:forEach items='${bindingResult.getFieldErrors("displayName")}' var="error">
-            <div style="color:red;">${error.getDefaultMessage()}
+            <div style="color:red; align-items: center; align-text: center; justify-content: center; position: relative; margin:auto">${error.getDefaultMessage()}
         </c:forEach>
     </div>
     <div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
     <input type="email" id="emailId" placeholder="Email" name="email" value="${form.email}"/>
         <c:forEach items='${bindingResult.getFieldErrors("email")}' var="error">
-            <div style="color:red;">${error.getDefaultMessage()}</div>
+            <div style="color:red; align-items: center; align-text: center; justify-content: center; position: relative; margin:auto">${error.getDefaultMessage()}</div>
         </c:forEach>
     </div>
     <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
     <input type="password" id="passwordId" placeholder="Password" name="password" value="${form.password}"/>
             <c:forEach items='${bindingResult.getFieldErrors("password")}' var="error">
-                <div style="color:red;">${error.getDefaultMessage()}</div>
+                <div style="color:red; align-items: center; align-text: center; justify-content: center; position: relative; margin:auto">${error.getDefaultMessage()}</div>
             </c:forEach>
     </div>
     <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
     <input type="password" id="confirmPasswordId" placeholder="Confirm Password" name="confirmPassword" value="${form.confirmPassword}"/>
                 <c:forEach items='${bindingResult.getFieldErrors("confirmPassword")}' var="error">
-                    <div style="color:red;">${error.getDefaultMessage()}</div>
+                    <div style="color:red; align-items: center; align-text: center; justify-content: center; position: relative; margin:auto">${error.getDefaultMessage()}</div>
                 </c:forEach>
     </div>
     <div class="input_field select_option">
@@ -66,17 +68,9 @@
     <input type="checkbox" id="checkbox" name="checkbox">
     <label for="checkbox">I agree with terms and conditions</label>
     <br>
-    <input class="hero-btn" type="submit" value="Submit" id="btnsubmit" onsubmit="submissionRedirect()"/>
+        <form action="/login/loginSubmit" method="POST"><input class="hero-btn" type="submit" value="Submit" id="btnsubmit"/></form>
     </div>
     </form>
-<c:if test="${bindingResult.hasErrors()}">
-    <br>
-
-    <c:forEach items="${bindingResult.getAllErrors()}" var="error">
-        <div style="color:red;">${error.getDefaultMessage()}</div>
-    </c:forEach>
-</c:if>
-
 </form>
 </section>
 

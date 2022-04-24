@@ -113,11 +113,6 @@ password.addEventListener("input", function(e) {
     passwordErrPara.style.display = "block"
   }
 })
-
-const submissionRedirect = function () {
-  return window.location.href="../HTML/index.html"
-}
-
 /* UNUSED CODE */
 
 // confirmPassword.addEventListener("input", function(e) {

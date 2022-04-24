@@ -1,23 +1,14 @@
 package teksystems.casestudy.controller;
 
 import org.apache.commons.lang3.StringUtils;
-import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import teksystems.casestudy.database.dao.*;
 import teksystems.casestudy.database.entity.*;
-import teksystems.casestudy.formbean.RegisterFormBean;
-import teksystems.casestudy.formbean.TeamFormBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,21 +55,7 @@ public class TeamController {
             PokemonTeam pokemonTeam = new PokemonTeam();
 
             pokemonTeam.setTeam(team);
-            pokemonTeam.setPokemon(pokemonDao.findById(id));
-
-            response.setViewName("redirect:/team/teambuilder");
-            // This is a duplicate entry error. A proper try-catch should be implemented
-            try {
-                pokemonTeamDao.save(pokemonTeam);
-            } catch(Exception e) {
-                System.out.println("You cannot create a duplicate entry");
-            }
-        }
-        if (id != -1 && teamIdList.size() < 6) {
-            PokemonTeam pokemonTeam = new PokemonTeam();
-
-            pokemonTeam.setTeam(team);
-//            pokemonTeam.setPokemon(pokemonDao.findById(pokemonTeamDao.deletePokemonTeamByPokemonId(pok_id, team.getId())));
+            pokemonTeamDao.deletePokemonByPokemonIdAndTeamId(pok_id, team.getId());
 
             response.setViewName("redirect:/team/teambuilder");
             // This is a duplicate entry error. A proper try-catch should be implemented

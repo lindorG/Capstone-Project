@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import teksystems.casestudy.database.entity.Pokemon;
 import teksystems.casestudy.database.entity.PokemonTeam;
 
 import java.util.List;
@@ -18,5 +19,6 @@ public interface PokemonTeamDAO extends JpaRepository<PokemonTeam, Long> {
         // @Query("select u from users u where u.email = :email")
     List<Integer> findByTeamId(@Param("team_id") Integer team_id);
 
-    Integer deletePokemonTeamByPokemonId(@Param("pok_id") Integer pok_id);
+    @Query(value = "delete from pokemon_teams where pok_id = :pok_id and team_id = :team_id", nativeQuery = true)
+    Pokemon deletePokemonByPokemonIdAndTeamId(@Param("pok_id") Integer pok_id, @Param("team_id") Integer team_id);
 }

@@ -94,7 +94,7 @@ public class UserController {
 
         log.info(form.toString());
 
-        response.setViewName("redirect:/user/edit/" + user.getId());
+        response.setViewName("redirect:/index");
 
         return response;
     }

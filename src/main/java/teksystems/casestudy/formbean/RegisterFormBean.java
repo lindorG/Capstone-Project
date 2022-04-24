@@ -20,7 +20,7 @@ public class RegisterFormBean {
     // and will be populated with the user id in the case of an edit
     private Integer id;
 
-    @Pattern(regexp = "^[\\w]{3,8}$", message = "Your display name must be between 3 and 8 characters long and cannot contain special characters")
+    @Pattern(regexp = "^[\\w]{3,15}$", message = "Your display name must be between 3 and 15 characters long and cannot contain special characters")
     @NotBlank(message = "Display Name is required")
     private String displayName;
 

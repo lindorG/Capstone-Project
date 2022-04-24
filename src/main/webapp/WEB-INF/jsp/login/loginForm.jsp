@@ -15,7 +15,7 @@
     <br>
     <br>
         <span><i aria-hidden="true" class="fa fa-lock"></i></span>
-        <input type="text" name="password" placeholder="password">
+        <input type="password" name="password" placeholder="password">
     <br>
         </form>
         <button type="submit">SIGN IN</button>
