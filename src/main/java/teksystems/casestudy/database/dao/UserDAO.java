@@ -20,7 +20,7 @@ public interface UserDAO extends JpaRepository<User, Long> {
     User findByEmail(@Param("email") String email);
     List<User> findByDisplayNameIgnoreCaseContaining(@Param("displayName") String displayName);
 
-    List<User> findByDisplayNameAndRegion(@Param("displayName") String displayName, @Param("region") String region);
+    List<User> findByDisplayNameIgnoreCaseAndRegionIgnoreCase(@Param("displayName") String displayName, @Param("region") String region);
 
 
 }

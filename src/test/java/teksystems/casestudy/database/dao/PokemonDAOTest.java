@@ -1,4 +1,14 @@
 package teksystems.casestudy.database.dao;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import teksystems.casestudy.database.entity.Pokemon;
+
 public class PokemonDAOTest {
+
+    @Autowired
+    private PokemonDAO pokemonDAO;
+
+    Pokemon pokemon;
+
+
 }
