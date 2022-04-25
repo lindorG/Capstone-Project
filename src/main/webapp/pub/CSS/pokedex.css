@@ -164,6 +164,7 @@ h1 {
     margin: 10px;
     text-align: center;
     transition: 0.6s;
+    border: 1px solid #ffffff;
 }
 
 .pokemon .img-container img {

@@ -16,9 +16,7 @@ public interface TeamDAO extends JpaRepository<Team, Long> {
     List<Team> findById(@Param("id") Integer id);
 
     @Query(value = "select * from teams where user_id = :user_id", nativeQuery = true)
-
     Team findByUserId(@Param("user_id") Integer user_id);
 
-    @Query(value = "insert into teams (user_id) values (:user_id)", nativeQuery = true)
-    void addTeam(@Param("user_id") Integer user_id);
+    void deleteTeamByUserId(@Param("user_id") Integer user_id);
 }

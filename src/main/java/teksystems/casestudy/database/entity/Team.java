@@ -3,6 +3,7 @@ package teksystems.casestudy.database.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Set;
 
 @Builder
@@ -23,4 +24,9 @@ public class Team {
 
     @JoinColumn(name = "user_id", nullable = false)
     private Integer userId;
+
+    @NonNull
+    @Column(name = "create_date")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createDate = new Date();
 }

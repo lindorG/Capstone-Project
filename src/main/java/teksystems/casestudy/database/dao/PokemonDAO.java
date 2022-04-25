@@ -14,5 +14,5 @@ public interface PokemonDAO extends JpaRepository<Pokemon, Long> {
 
     List<Pokemon> findByNameIgnoreCaseContaining(@Param("name") String name);
 
-    List<Pokemon> findAll();
+    List<Pokemon> findAllById(@Param("id") Integer id);
 }

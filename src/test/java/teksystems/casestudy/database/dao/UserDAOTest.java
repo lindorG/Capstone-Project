@@ -24,10 +24,11 @@ class UserDAOTest {
     void createUser() {
         user = new User(2, "hello@gmail.com", "Hello", "Kanto", "password", new Date());
     }
-    // 1. This stack of code tests findByEmail()
+
+    // 1. This stack of code tests findByEmail() which searches for a user by the parameter "email"
     @Order(1)
     @Test
-    void findById() {
+    void findByEmail() {
         userDAO.save(user);
         String user2 = userDAO.findByEmail(user.getEmail()).getEmail();
 
@@ -37,7 +38,7 @@ class UserDAOTest {
         System.out.println(user);
     }
     @Order(2)
-    // 2. This stack of code tests findByDisplayNameIgnoreCaseContaining() and ignores the casing of the parameter
+    // 2. This stack of code tests findByDisplayNameIgnoreCaseContaining() which searches for a user by the parameter "displayName" and ignores casing
     @Test
     void findByDisplayNameIgnoreCaseContaining() {
         userDAO.save(user);
@@ -48,7 +49,7 @@ class UserDAOTest {
         System.out.println(displayName);
         System.out.println(credentials);
     }
-    // 3. This stack of code tests findByDisplayNameIgnoreCaseContaining() and ignores the casing of the parameter
+    // 3. This stack of code tests findByDisplayNameIgnoreCaseContaining() which searches for a user by the parameters "displayName", "region", and ignores casing
     @Order(3)
     @Test
     void findByDisplayNameIgnoreCaseAndRegionIgnoreCase() {
