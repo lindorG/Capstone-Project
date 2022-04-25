@@ -627,3 +627,6 @@ footer > p{
         grid-template-columns: 1fr 2fr;
     }
 }
+a:hover{
+     color: #333333;
+ }

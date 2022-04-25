@@ -131,6 +131,7 @@ nav .fa {
     position: relative;
     cursor: pointer;
     margin-left: 130px;
+    transition: 0.3s;
 }
 /*COLOR HOVER EFFECT OVER SIGN UP BUTTON*/
 .hero-btn:hover {
@@ -196,4 +197,7 @@ radio {
 
 .wrappable {
     white-space:normal;
+}
+a:hover{
+    color: #ffffff;
 }

@@ -87,6 +87,7 @@ nav img {
     background: transparent;
     position: relative;
     cursor: pointer;
+    transition: .5s;
 }
 /*COLOR HOVER EFFECT OVER SIGN UP BUTTON*/
 .hero-btn:hover {
@@ -139,6 +140,9 @@ nav .fa {
     margin: auto;
     text-align: center;
     padding-top: 100px;
+}
+a:hover {
+    color: #ffffff;
 }
 /* HEADER TEXT */
 h1 {

@@ -205,8 +205,8 @@ fa-solid fa-dragon {
 }
 /*COLOR HOVER EFFECT OVER SIGN UP BUTTON*/
 .team-btn:hover {
-    color: #ff7979;
-    transition: .3s;
+    color: #ffffff;
+    transition: .15s;
 }
 .team-btn:hover a {
     color: #ffffff;
@@ -216,11 +216,12 @@ fa-solid fa-dragon {
 }
 .fa-trash-can {
     font-size: 25px;
-    transition: .3s;
+    transition: .15s;
     width: 5px;
 }
 .fa-trash-can:hover {
     font-size: 30px;
     transform: translate(5%, 0%);
-    transition: .3s;
+    color: #ff7979;
+    transition: .15s;
 }
