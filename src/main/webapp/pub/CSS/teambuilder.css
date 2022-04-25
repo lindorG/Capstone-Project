@@ -197,23 +197,30 @@ fa-solid fa-dragon {
     display: inline-block;
     text-decoration: none;
     color: #ffffff;
-    padding: 12px 34px;
+    padding: 6px 12px;
     font-size: 13px;
-    border: 1px solid #ffffff;
-    background: #2a2a2a;
     position: relative;
     cursor: pointer;
+    transition: .3s;
 }
 /*COLOR HOVER EFFECT OVER SIGN UP BUTTON*/
 .team-btn:hover {
-    color: #2a2a2a;
+    color: #ff7979;
     transition: .3s;
-    border: 1px solid #575757;
-    background: #ffffff;
 }
 .team-btn:hover a {
     color: #ffffff;
 }
 .search .searchToAdd .fa-solid {
     color: #333333;
+}
+.fa-trash-can {
+    font-size: 25px;
+    transition: .3s;
+    width: 5px;
+}
+.fa-trash-can:hover {
+    font-size: 30px;
+    transform: translate(5%, 0%);
+    transition: .3s;
 }
