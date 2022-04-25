@@ -163,6 +163,7 @@ h1 {
     padding: 20px;
     margin: 10px;
     text-align: center;
+    transition: 0.6s;
 }
 
 .pokemon .img-container img {
@@ -173,6 +174,9 @@ h1 {
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
     border-radius: 22%;
     transition: .5s;
+}
+.pokemon .img-container {
+    transition: 0.6s;
 }
 .pokemon .img-container:hover{
     border-radius: 15%;

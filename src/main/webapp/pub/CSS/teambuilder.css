@@ -6,7 +6,6 @@
 }
 /*ALL THINGS PERTAINING TO HEADER(background image, text, etc.)*/
 .header {
-    height: 85vh;
     width: 100%;
     background-image: linear-gradient(rgba(24, 24, 24, 0.85), rgba(255, 255, 255, .35)), url(../images/teambuilder1.jpg);
     background-position: center;

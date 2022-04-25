@@ -41,15 +41,15 @@ class UserDAOTest {
         assertEquals(user2,"hello@gmail.com");
     }
 
-//    @Test
-//    void findByEmail() {
-//    }
-//
-//    @Test
-//    void findByDisplayNameIgnoreCaseContaining() {
-//    }
-//
-//    @Test
-//    void findByDisplayNameAndRegion() {
-//    }
+    @Test
+    void findByEmail() {
+    }
+
+    @Test
+    void findByDisplayNameIgnoreCaseContaining() {
+    }
+
+    @Test
+    void findByDisplayNameAndRegion() {
+    }
 }

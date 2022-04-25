@@ -7,7 +7,7 @@
 }
 /*ALL THINGS PERTAINING TO HEADER(background image, text, etc.)*/
 .header {
-    height: 20vh;
+    height: 30vh;
     width: 100%;
     background-image: linear-gradient(rgba(43, 43, 43, 0.9), rgba(255, 255, 255, 0.57)), url(../../pub/images/news1.jpg);
     background-position: center;
@@ -224,7 +224,7 @@ hr{
 
 .banner-main-content button a{
     color: #f3f3f3f3;
-    transition: color 1s ease;
+    transition: color 0.3s ease;
 }
 
 .banner-main-content button:hover{
@@ -271,11 +271,13 @@ hr{
     padding: 12px;
     height: 300px;
     opacity: 0.3;
+    transition: 0.6s;
 }
 
 .hot-topic img{
     display: block;
     opacity: 0.8;
+    transition: 0.6s;
 }
 .hot-topic:hover{
     opacity: 1;

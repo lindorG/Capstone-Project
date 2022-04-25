@@ -98,6 +98,7 @@ nav .fa {
     padding-bottom: 200px;
 }
 .about-us img {
+    display: block;
     position: relative;
     margin-left: 80px;
 }

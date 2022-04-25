@@ -1,7 +1,6 @@
 <jsp:include page="../include/header.jsp" />
 
 <link rel="stylesheet" href="..\..\..\pub\CSS\loginForm.css">
-<script src="..\..\pub\JavaScript\loginForm.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 
@@ -24,5 +23,5 @@
 
 </section>
 
-
+<script src="..\..\pub\JavaScript\loginForm.js"></script>
 <jsp:include page="../include/footer.jsp" />

@@ -1,14 +1,7 @@
-/*ALL*/
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-}
-/*ALL THINGS PERTAINING TO HEADER(background image, text, etc.)*/
 .header {
     min-height: 100vh;
     width: 100%;
-    background-image: linear-gradient(rgba(43, 43, 43, 0.3), rgba(255, 255, 255, .35)), url(../images/empty.jpg);
+    background-image: linear-gradient(rgba(43, 43, 43, 0.3), rgba(255, 255, 255, .35)), url(../images/404.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -110,4 +103,20 @@ nav .fa {
     .nav-links ul {
         padding: 30px;
     }
+}
+
+.nothing img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    width: 45%;
+}
+.nothing h1 {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    color: #ffffff;
+    opacity: .5;
+    text-align: center;
 }

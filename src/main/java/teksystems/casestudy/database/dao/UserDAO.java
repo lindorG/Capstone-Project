@@ -17,7 +17,6 @@ public interface UserDAO extends JpaRepository<User, Long> {
 
     // JPA/HQL Query: @Query("select u from users u where u.email = :email")
     @Query(value = "select * from users where email = :email", nativeQuery = true)
-
     User findByEmail(@Param("email") String email);
     List<User> findByDisplayNameIgnoreCaseContaining(@Param("displayName") String displayName);
 

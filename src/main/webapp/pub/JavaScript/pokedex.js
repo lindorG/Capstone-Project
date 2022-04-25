@@ -10,24 +10,24 @@ function hideMenu() {
 const poke_container = document.getElementById("poke_container")
 const pokemon_number = 649
 const colors = {
-    normal: "#F5F5F5",
-    fire: "#ff9999",
-    water: "#abd5ff",
-    grass: "#c7fcac",
-    electric: "#fff459",
-    ice: "#c2fcff",
-    fighting: "#cf6651",
-    poison: "#e573ff",
-    ground: "#F4E7DA",
-    flying: "#e6fbfc",
-    psychic: "#ffbfe2",
-    bug: "#ffb947",
-    rock: "#a37c6c",
-    ghost: "#bd86fc",
-    dragon: "#97B3E6",
-    dark: "#5e5e5e",
-    steel: "#5e5e5e",
-    fairy: "#ffedfd"
+    normal: "rgba(245,245,245,0.5)",
+    fire: "rgba(255,153,153,0.5)",
+    water: "rgba(171,213,255,0.5)",
+    grass: "rgba(199,252,172,0.5)",
+    electric: "rgba(255,244,89,0.5)",
+    ice: "rgba(194,252,255,0.5)",
+    fighting: "rgba(207,102,81,0.5)",
+    poison: "rgba(229,115,255,0.5)",
+    ground: "rgba(244,231,218,0.5)",
+    flying: "rgba(230,251,252,0.5)",
+    psychic: "rgba(255,191,226,0.5)",
+    bug: "rgba(255,185,71,0.5)",
+    rock: "rgba(163,124,108,0.5)",
+    ghost: "rgba(189,134,252,0.5)",
+    dragon: "rgba(151,179,230,0.5)",
+    dark: "rgba(94,94,94,0.5)",
+    steel: "rgba(190,190,190,0.5)",
+    fairy: "rgba(255,237,253,0.5)"
 }
 
 const fetchPokemon = async () => {

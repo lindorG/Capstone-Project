@@ -18,5 +18,5 @@ public interface PokemonTeamDAO extends JpaRepository<PokemonTeam, Long> {
     List<Integer> findByTeamId(@Param("team_id") Integer team_id);
 
 //    @Query(value = "delete from pokemon_teams where pok_id = :pok_id and team_id = :team_id")
-    void deletePokemonTeamByIdAndTeamId(@Param("pok_id") Integer pok_id, @Param("team_id") Integer team_id);
+    void deletePokemonTeamByPokemonIdAndTeamId(@Param("pok_id") Integer pok_id, @Param("team_id") Integer team_id);
 }

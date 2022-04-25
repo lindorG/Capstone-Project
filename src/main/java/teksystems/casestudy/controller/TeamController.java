@@ -51,9 +51,12 @@ public class TeamController {
             teamDao.save(team);
         }
 
-        List<Integer> teamIdList = pokemonTeamDao.findByTeamId(team.getId());
+        System.out.println(pok_id);
 
-        pokemonTeamDao.deletePokemonTeamByIdAndTeamId(pok_id, team.getId());
+        pokemonTeamDao.deletePokemonTeamByPokemonIdAndTeamId(pok_id, team.getId());
+
+        System.out.println(pok_id);
+
         response.setViewName("redirect:/team/teambuilder");
 
         return response;
@@ -91,11 +94,11 @@ public class TeamController {
 
             response.setViewName("redirect:/team/teambuilder");
             // This is a duplicate entry error and it should be handled
-            try {
+//            try {
                 pokemonTeamDao.save(pokemonTeam);
-            } catch(Exception e) {
-                System.out.println("You cannot create a duplicate entry");
-            }
+//            } catch(Exception e) {
+//                System.out.println("You cannot create a duplicate entry");
+//            }
         }
 
 //        System.out.println(id + " is here");
@@ -117,6 +120,10 @@ public class TeamController {
 //        System.out.println(pok_id);
 //        System.out.println(team.getId());
 //        System.out.println(pokemonTeamDao.deletePokemonTeamByPokemonId(team.getId()));
+
+        System.out.println(team);
+        System.out.println(teamIdList);
+        System.out.println(team.getId());
 
         List<Pokemon> pokemonList = new ArrayList<>();
 
