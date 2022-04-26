@@ -31,11 +31,6 @@
             <input type="email" id="emailId" placeholder="Email" required>
             <input type="text" id="phoneId" placeholder="Phone no." required>
             <input type="text" id="subjectId" placeholder="Subject" required>
-            <p>How are you feeling today?</p>
-            <input type="radio" id="good" name="radio">
-            <label for="good" class="wrappable">good</label>
-            <input type="radio" id="bad" name="radio">
-            <label for="bad" class="wrappable">bad</label>
             <textarea id="messageId" rows="6" placeholder="How may we help you?"></textarea>
             <button type="submit">Send</button>
         </form>
