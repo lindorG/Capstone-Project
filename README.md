@@ -18,7 +18,12 @@ I plan on adding a community messge board/forum where users can communicate with
 
 There is so much room for this project to grow in its complexity with all the data that is present in Pokémon, and I am very passionate to continue working on it.
 
+##  Screenshots
 
+![Teambuilder](https://user-images.githubusercontent.com/97411880/165364251-9bd3ae0e-42c6-4071-be0b-b3fc5f8dca3c.png)
+![Home-Landing-Index](https://user-images.githubusercontent.com/97411880/165364191-7ebadd62-a9e7-498b-ae02-63df51be552d.png)
+![PokeDex](https://user-images.githubusercontent.com/97411880/165364345-4af40abf-b427-411e-b800-84d93156d9c7.png)
+![Search](https://user-images.githubusercontent.com/97411880/165364360-b965a7d7-63a5-4678-b182-c2c5b8b95111.png)
 
 ##  Table of Contents
 
