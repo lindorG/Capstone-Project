@@ -24,6 +24,13 @@ There is so much room for this project to grow in its complexity with all the da
 ![Home-Landing-Index](https://user-images.githubusercontent.com/97411880/165364191-7ebadd62-a9e7-498b-ae02-63df51be552d.png)
 ![PokeDex](https://user-images.githubusercontent.com/97411880/165364345-4af40abf-b427-411e-b800-84d93156d9c7.png)
 ![Search](https://user-images.githubusercontent.com/97411880/165364360-b965a7d7-63a5-4678-b182-c2c5b8b95111.png)
+![500](https://user-images.githubusercontent.com/97411880/165364536-67bd9a43-7362-4499-9d4e-15f970424ee7.png)
+![404](https://user-images.githubusercontent.com/97411880/165364549-66586c8b-a3ea-49a3-9b6f-d517b407e256.png)
+![News](https://user-images.githubusercontent.com/97411880/165364614-d73ef148-735f-4c19-88a5-0a0ac26b88d0.png)
+![About](https://user-images.githubusercontent.com/97411880/165364621-f58771e3-1589-43db-8e94-c895f3d76fe5.png)
+![Register](https://user-images.githubusercontent.com/97411880/165364632-6524217b-d950-4ab5-acbc-985f29a328ad.png)
+
+
 
 ##  Table of Contents
 
