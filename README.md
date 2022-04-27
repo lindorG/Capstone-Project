@@ -35,8 +35,8 @@ There is so much room for this project to grow in its complexity with all the da
 ##  Table of Contents
 
 * [License](#License)
-* [Acknowledgements](#Contributing)
-* [Tests](#Tests)
+* [Acknowledgements](#Acknowledgements)
+* [Tests](#Test)
 
 
 ## License
