@@ -46,7 +46,13 @@ N/A
 [Giorvanny Lindor](https://github.com/lindorG)
 
 ## Acknowledgments
+
+On the programming side of things, these amazing people taught me the languages and frameworks necessary for this project.
+
 * [Eric Heilig](https://github.com/EricH-PerScholas/)
+* [Jafer Alhaboubi](https://github.com/jhabboubi)
 * [Raheem Abolfathzadeh](https://github.com/RaheemAbol)
 
 ## Test
+
+Navigate [here](https://github.com/lindorG/Capstone-Project/tree/master/src/test/java/teksystems/casestudy).
