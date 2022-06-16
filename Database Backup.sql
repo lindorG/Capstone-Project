@@ -203,7 +203,6 @@ UNLOCK TABLES;
 /*!50003 SET character_set_results = utf8mb3 */ ;
 /*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER NEW_POKEMON BEFORE INSERT ON pokemon
 FOR EACH ROW 
@@ -260,7 +259,6 @@ UNLOCK TABLES;
 /*!50003 SET character_set_results = utf8mb3 */ ;
 /*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER NEW_ABILITY BEFORE INSERT ON pokemon_abilities
 FOR EACH ROW 
@@ -368,7 +366,6 @@ UNLOCK TABLES;
 /*!50003 SET character_set_results = utf8mb3 */ ;
 /*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 /*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER NEW_HABITAT BEFORE INSERT ON pokemon_habitats
 FOR EACH ROW 
@@ -461,11 +458,13 @@ CREATE TABLE `pokemon_teams` (
   `team_id` int(11) NOT NULL,
   `pok_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `team_id` (`team_id`,`pok_id`),
+  UNIQUE KEY `team_id_2` (`team_id`,`pok_id`),
   KEY `FK_pokemon_teams_poki_id_idx` (`pok_id`),
   KEY `FK_pokemon_teams_team_id_idx` (`team_id`),
   CONSTRAINT `FK_pokemon_teams_poki_id` FOREIGN KEY (`pok_id`) REFERENCES `pokemon` (`pok_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `FK_pokemon_teams_team_id` FOREIGN KEY (`team_id`) REFERENCES `teams` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=256 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -474,6 +473,7 @@ CREATE TABLE `pokemon_teams` (
 
 LOCK TABLES `pokemon_teams` WRITE;
 /*!40000 ALTER TABLE `pokemon_teams` DISABLE KEYS */;
+INSERT INTO `pokemon_teams` VALUES (59,1,385),(251,1,610),(56,1,648),(254,2,20),(63,2,151),(61,2,637),(245,2,649),(178,3,19),(175,3,28),(176,3,208),(249,4,27),(248,4,151);
 /*!40000 ALTER TABLE `pokemon_teams` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -535,11 +535,12 @@ DROP TABLE IF EXISTS `teams`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `teams` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `team_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `create_date` timestamp NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  PRIMARY KEY (`id`),
+  KEY `fk_teams_user_id_idx` (`user_id`),
+  CONSTRAINT `fk_teams_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -548,6 +549,7 @@ CREATE TABLE `teams` (
 
 LOCK TABLES `teams` WRITE;
 /*!40000 ALTER TABLE `teams` DISABLE KEYS */;
+INSERT INTO `teams` VALUES (1,1,'2022-04-21 05:36:37'),(2,2,'2022-04-21 06:04:19'),(3,7,'2022-04-24 00:12:18'),(4,9,'2022-04-26 12:17:49');
 /*!40000 ALTER TABLE `teams` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -639,7 +641,7 @@ CREATE TABLE `user_roles` (
   PRIMARY KEY (`id`),
   KEY `FK_user_roles_user_id_idx` (`user_id`),
   CONSTRAINT `FK_user_roles_user_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -648,7 +650,7 @@ CREATE TABLE `user_roles` (
 
 LOCK TABLES `user_roles` WRITE;
 /*!40000 ALTER TABLE `user_roles` DISABLE KEYS */;
-INSERT INTO `user_roles` VALUES (1,2,'USER'),(2,1,'ADMIN'),(4,3,'USER'),(5,3,'USER'),(6,4,'USER');
+INSERT INTO `user_roles` VALUES (1,2,'USER'),(2,1,'ADMIN'),(4,3,'USER'),(5,3,'USER'),(6,4,'USER'),(7,5,'USER'),(8,6,'USER'),(9,7,'USER'),(10,8,'USER'),(11,9,'USER'),(12,10,'USER');
 /*!40000 ALTER TABLE `user_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -669,7 +671,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `userscol_UNIQUE` (`email`),
   UNIQUE KEY `name_UNIQUE` (`display_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -678,7 +680,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'random@gmail.com','Random','$2a$12$OIqV/5DPNlr/.yn5Fk0nWOi/yDJZxG5aK57NZyAFJAjsw6PuQ9aTG','Johto','2022-04-10 21:02:56'),(2,'hello@gmail.com','Hello','$2a$12$OIqV/5DPNlr/.yn5Fk0nWOi/yDJZxG5aK57NZyAFJAjsw6PuQ9aTG','Kanto','2022-04-10 22:17:54'),(3,'rul@gmail.com','testing1','$2a$10$7KxNqTdLsilBoXtJ8a0c7OkjDpdTiba4tELei.dAkXcosX5moWshq','Galar','2022-04-15 00:07:00'),(4,'sddfsdfdsf@gmail.com','vsdfsdf','$2a$10$lBWQLsnSwhcnlEpJC8vwIeDTe00b6tnvWynXAP71l47WmhfxrCz2K','Kanto','2022-04-18 15:39:09');
+INSERT INTO `users` VALUES (1,'random@gmail.com','Random','$2a$12$OIqV/5DPNlr/.yn5Fk0nWOi/yDJZxG5aK57NZyAFJAjsw6PuQ9aTG','Johto','2022-04-10 21:02:56'),(2,'hello@gmail.com','Hello','$2a$12$OIqV/5DPNlr/.yn5Fk0nWOi/yDJZxG5aK57NZyAFJAjsw6PuQ9aTG','Kanto','2022-04-10 22:17:54'),(3,'rul@gmail.com','testing1','$2a$10$7KxNqTdLsilBoXtJ8a0c7OkjDpdTiba4tELei.dAkXcosX5moWshq','Galar','2022-04-15 00:07:00'),(4,'sddfsdfdsf@gmail.com','vsdfsdf','$2a$10$lBWQLsnSwhcnlEpJC8vwIeDTe00b6tnvWynXAP71l47WmhfxrCz2K','Kanto','2022-04-18 15:39:09'),(5,'apples@gmail.com','Cynthia','$2a$10$fUYVl4bbVkHx8l.CGTHo3egBFzqD6VqORACbvEP6RxgiOqsDD/H.u','Kanto','2022-04-23 18:57:39'),(6,'geodude@gmail.com','Brock','$2a$10$N03CjOkyvpLJJFsnniHa9em7893Kaym2e6OCIhgiasBX/aX6wwxkK','Kanto','2022-04-23 19:03:33'),(7,'charizard@gmail.com','Charizard','$2a$10$nCQvmISWW59TXZ.tmkab.O8f4tekzaO7ebG0HHI0Qb6iGAJDeOH3a','Kanto','2022-04-23 19:20:13'),(8,'deoxys@gmail.com','Deoxys','$2a$10$4MJvb.mVh5IIMeQ3UnKSfuo.1xTx0dwLOfPqBHoOQazGc4k0FQkwK','Hoenn','2022-04-23 19:25:50'),(9,'newuser@gmail.com','NewUser','$2a$10$lPmUDXFT4pFndXwlhvufH.iQkEsxMbcQO3uAqcq1ovt9B10TmG4b.','Kanto','2022-04-26 12:13:56'),(10,'newuser1@gmail.com','newuser1','$2a$10$yOqTR6BY0DftP0R2y54J.u.0YXBo8pNF748rJ5J1LeK/B3Jj7uMXu','Kanto','2022-04-27 12:22:12');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -719,7 +721,6 @@ UNLOCK TABLES;
 /*!50003 SET character_set_results = utf8mb3 */ ;
 /*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `output_pokemon_abilities`(IN var1 varchar(79))
 BEGIN
@@ -744,7 +745,6 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb3 */ ;
 /*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `output_pokemon_base_stats`(IN var1 varchar(79))
 BEGIN
@@ -767,7 +767,6 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb3 */ ;
 /*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `output_pokemon_evol`(IN var1 int)
 BEGIN
@@ -792,7 +791,6 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb3 */ ;
 /*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `output_pokemon_fainted`(IN var1 varchar(79), IN var2 varchar(79))
 BEGIN
@@ -820,7 +818,6 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb3 */ ;
 /*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `output_pokemon_habitat`(IN var1 varchar(8))
 BEGIN
@@ -845,7 +842,6 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb3 */ ;
 /*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `output_pokemon_hidden_abil`(IN var1 varchar(79))
 BEGIN
@@ -870,8 +866,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = utf8mb3 */ ;
 /*!50003 SET character_set_results = utf8mb3 */ ;
 /*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `output_pokemon_moves`(IN var1 varchar(79))
 BEGIN
@@ -896,7 +891,6 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb3 */ ;
 /*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `output_pokemon_moves_method`(IN var1 varchar(79))
 BEGIN
@@ -924,7 +918,6 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb3 */ ;
 /*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `output_pokemon_moves_types`(IN var1 varchar(79))
 BEGIN
@@ -947,7 +940,6 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb3 */ ;
 /*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `output_pokemon_moves_version`(IN var1 varchar(79))
 BEGIN
@@ -973,7 +965,6 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb3 */ ;
 /*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `output_pokemon_types`(IN var1 varchar(79))
 BEGIN
@@ -998,7 +989,6 @@ DELIMITER ;
 /*!50003 SET character_set_results = utf8mb3 */ ;
 /*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `output_pokemon_type_efficacy`(IN var1 varchar(79))
 BEGIN
@@ -1137,4 +1127,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-19 15:49:06
+-- Dump completed on 2022-06-16 11:08:09
