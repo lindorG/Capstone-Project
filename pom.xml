@@ -10,7 +10,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>teksystems</groupId>
+	<groupId>lindor</groupId>
 	<artifactId>casestudy</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Case Study</name>
