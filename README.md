@@ -20,37 +20,22 @@ Pokémon Team Builder is a full-stack web application that functions similarly t
 ## Installation & Setup
 
 ### Option 1: Fully Automated Database Setup (Recommended)
-With this method, the database schema and initial data will be created automatically when the application starts, provided that Docker is running.
+This method will automatically create the database schema and insert initial data when the application starts, as long as Docker is running.
 
 1. **Clone the repository**:
    ```sh
    git clone https://github.com/lindorG/Capstone-Project.git
    cd Capstone-Project
-   ```
-
-2. **Ensure Docker is running**, then start the MySQL container:
+    ```
+2. **While Docker is running, start the MySQL container**:
    ```sh
-   docker-compose up -d
-   ```
-   This will launch a MySQL container with the necessary configurations.
-
-3. **Run the application**:
-   ```sh
-   ./mvnw spring-boot:run
-   ```
-    - On startup, Spring Boot will check for the database, create the schema if necessary, and insert initial data.
-
-4. **Access the application**: Open `http://localhost:8080` in your browser.
-
-### Option 2: Semi-Automated Database Setup
-With this method, the schema is created automatically, but you must run a script to insert initial data.
-
-1. **Follow steps 1-3 from Option 1** to set up the database and start the application.
-2. **Run the provided SQL script** to insert data:
-   ```sh
-   docker exec -i capstone-mysql mysql -u root -pYOUR_PASSWORD capstone_db < database_backup.sql
-   ```
-3. **Access the application**: Open `http://localhost:8080` in your browser.
+  docker-compose up -d
+    ```
+3. **Build and run the application:**
+  ```
+ ./mvnw clean install -DskipTests && docker-compose up --build
+  ```
+4. **Access the application: Open ``http://localhost:8080`` in your browser.**
 
 ##  Screenshots
 
