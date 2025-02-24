@@ -1,7 +1,9 @@
 # Pokémon Team Builder E-Commerce Platform
 <p align="center">
   <img src="src/main/webapp/pub/images/logo-animated2.gif" alt="Pokémon Team Builder Logo">
-### [🔗 poketheory.shop](https://poketheory.shop)
+</p>
+<p align="center">
+  <a href="https://poketheory.shop" style="font-size: 24px; font-weight: bold;">🔗 poketheory.shop</a>
 </p>
 
 ## Overview
