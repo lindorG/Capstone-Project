@@ -24,8 +24,8 @@ This method will automatically create the database schema and insert initial dat
 
 1. **Clone the repository**:
    ```sh
-   git clone https://github.com/lindorG/Capstone-Project.git
-   cd Capstone-Project
+   git clone https://github.com/lindorG/Pokemon-Team-Builder-E-Commerce-Platform.git
+   cd Pokemon-Team-Builder-E-Commerce-Platform
     ```
 2. **While Docker is running, start the MySQL container**:
    ```sh
