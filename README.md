@@ -29,12 +29,12 @@ This method will automatically create the database schema and insert initial dat
     ```
 2. **While Docker is running, start the MySQL container**:
    ```sh
-  docker-compose up -d
+    docker-compose up -d
     ```
 3. **Build and run the application:**
-  ```
- ./mvnw clean install -DskipTests && docker-compose up --build
-  ```
+    ```
+   ./mvnw clean install -DskipTests && docker-compose up --build
+    ```
 4. **Access the application: Open ``http://localhost:8080`` in your browser.**
 
 ##  Screenshots
