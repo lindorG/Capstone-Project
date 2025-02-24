@@ -2,9 +2,12 @@
 <p align="center">
   <img src="src/main/webapp/pub/images/logo-animated2.gif" alt="Pokémon Team Builder Logo">
 </p>
-<p align="center">
-  <h2>🔗<a href="https://poketheory.shop">poketheory.shop</a></h2>
-</p>
+
+<div align="center">
+  <h2>
+    🔗 <a href="https://poketheory.shop">poketheory.shop</a>
+  </h2>
+</div>
 
 ## Overview
 Pokémon Team Builder is a full-stack web application that functions similarly to an e-commerce platform. Instead of adding products to a cart, users can build their ideal Pokémon team with up to six Pokémon. The app features a search bar for easy navigation and a modern UI built with Java, Spring Boot, MySQL, JavaScript, HTML/CSS, and JSP.
