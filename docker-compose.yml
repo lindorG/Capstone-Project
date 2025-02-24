@@ -35,7 +35,7 @@ services:
         condition: service_healthy
     environment:
       SPRING_PROFILES_ACTIVE: dev
-      SPRING_DATASOURCE_URL: jdbc:mysql://mariadb:3306/capstone?autoReconnect=true&useSSL=false&characterEncoding=UTF-8
+      SPRING_DATASOURCE_URL: jdbc:mysql://mariadb:3306/capstone?autoReconnect=true&useSSL=true&characterEncoding=UTF-8
       SPRING_DATASOURCE_USERNAME: "root"
       SPRING_DATASOURCE_PASSWORD: "root"
     ports:
