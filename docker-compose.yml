@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:10.6
+    container_name: project
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "capstone"
+      MYSQL_PWD: "root"
+    ports:
+      - "3306:3306"
+    networks:
+      - backend
+    volumes:
+      - ./db_init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        WAR_FILE: ./target/Pokemon-Team-Builder-E-Commerce-Platform-test-0.0.1-SNAPSHOT.war
+    container_name: spring-app
+    restart: always
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      SPRING_DATASOURCE_URL: jdbc:mysql://mariadb:3306/capstone?autoReconnect=true&useSSL=false&characterEncoding=UTF-8
+      SPRING_DATASOURCE_USERNAME: "root"
+      SPRING_DATASOURCE_PASSWORD: "root"
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+    command: ["java", "-jar", "/usr/local/tomcat/webapps/app.war"]
+
+networks:
+  backend:
