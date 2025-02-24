@@ -3,7 +3,7 @@
   <img src="src/main/webapp/pub/images/logo-animated2.gif" alt="Pokémon Team Builder Logo">
 </p>
 <p align="center">
-  <h2>🔗<a href="https://poketheory.shop">poketheory.shop</a></h2>h2>
+  <h2>🔗<a href="https://poketheory.shop">poketheory.shop</a></h2>
 </p>
 
 ## Overview
